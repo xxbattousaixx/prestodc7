@@ -23,7 +23,7 @@
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <strong>Category: <a href="#">{{ $article->category->name }}</a></strong>
+                    <strong>Categoria: <a href="{{route('public.articles.category', [$article->category->name, $article->category->id])}}">{{ $article->category->name }}</a></strong>
                     <i>{{ $article->created_at->format('d/m/Y') }} - {{ $article->user->name }}</i>
                 </div>
 

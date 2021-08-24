@@ -17,10 +17,8 @@ use App\Http\Controllers\PublicController;
 
 Route::get('/', [PublicController::class,'index']);
 
-
 // CRUD ANNUNCI
 Route::resource('articles', ArticleController::class);
 
 // CATEGORIE
-Route::get('/category', [CategoryController::class,'index'])->name('categories.index');
-Route::get('/category/{category}', [CategoryController::class,'show'])->name('categories.show');
+Route::get('/category/{name}/{id}/articles', [PublicController::class, 'articlesByCategory'])->name('public.articles.category');
