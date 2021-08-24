@@ -41,7 +41,11 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        Article::create($request->all());
+        Article::create( [ 
+            'title'=>$request->title,
+            'body'=>$request->body,
+            'category_id'=>$request->category_id 
+            ]);
         return redirect()->back()->with('message','Articolo inserito');
     }
 

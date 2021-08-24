@@ -11,9 +11,15 @@
         </li>
         @auth      
         <li class="nav-item">
+            <a class="nav-link" href="{{route('articles.index')}}">Guarda tutti gli annunci</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{route('articles.create')}}">Crea Annuncio</a>
           </li>
         @else
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('register')}}">Crea Annuncio</a>
+          </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>
           </li>
@@ -21,9 +27,7 @@
             <a class="nav-link" href="{{route('register')}}">Registrati</a>
           </li>
         @endauth
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('articles.index')}}">Guarda tutti gli annunci</a>
-          </li>
+        
         @auth
           <li class="nav-item">
             <a class="nav-link" href="#">{{Auth::user()->name}}</a>

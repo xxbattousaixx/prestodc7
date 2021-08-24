@@ -34,7 +34,7 @@
                     </div> --}}
 
                     <div class="mb-3">
-                        <select name="categories[]" class="form-select" multiple aria-label="multiple select example">
+                        <select name="category_id" class="form-select" aria-label="multiple select example">
                             <option selected>Scegli la categoria</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
