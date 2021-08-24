@@ -19,7 +19,10 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// CRUD ANNUNCI
 Route::resource('articles', ArticleController::class);
 
+// CATEGORIE
 Route::get('/category', [CategoryController::class,'index'])->name('categories.index');
 Route::get('/category/{category}', [CategoryController::class,'show'])->name('categories.show');

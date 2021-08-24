@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand ms-3" href="#">Presto.it</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,7 +9,6 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
-       
         @auth      
         <li class="nav-item">
             <a class="nav-link" href="{{route('articles.create')}}">Crea Annuncio</a>
@@ -19,13 +18,12 @@
             <a class="nav-link" href="{{route('login')}}">Login</a>
           </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('register')}}">Register</a>
+            <a class="nav-link" href="{{route('register')}}">Registrati</a>
           </li>
         @endauth
         <li class="nav-item">
-            <a class="nav-link" href="{{route('articles.index')}}">Vedere Annunci</a>
+            <a class="nav-link" href="{{route('articles.index')}}">Guarda tutti gli annunci</a>
           </li>
-  
         @auth
           <li class="nav-item">
             <a class="nav-link" href="#">{{Auth::user()->name}}</a>
@@ -36,8 +34,7 @@
           </li>           
             <form action="{{route('logout')}}" method="POST" id="form-logout">
               @csrf
-            </form>             
-       
+            </form> 
         @endauth
       </ul>      
     </div>
