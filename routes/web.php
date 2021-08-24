@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('articles', ArticleController::class);
+
+Route::get('/category', [CategoryController::class,'index'])->name('categories.index');
+Route::get('/category/{category}', [CategoryController::class,'show'])->name('categories.show');
