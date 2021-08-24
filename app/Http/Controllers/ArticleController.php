@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -44,7 +45,8 @@ class ArticleController extends Controller
         Article::create( [ 
             'title'=>$request->title,
             'body'=>$request->body,
-            'category_id'=>$request->category_id 
+            'category_id'=>$request->category_id,
+            'user_id'=>Auth::id()
             ]);
         return redirect()->back()->with('message','Articolo inserito');
     }
