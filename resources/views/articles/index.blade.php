@@ -22,5 +22,9 @@
         </div>
     </div>
 @endforeach
-
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        {{$articles->links()}}
+    </div>
+</div>
 </x-layout>
