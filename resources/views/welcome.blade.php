@@ -6,7 +6,11 @@
         </div>
     </div>
     <div class="row justify-content-center mb-5">
-
+@if(session('access.denied.revisor.only'))
+<div class="alert alert-danger">
+    Accesso non consentito -- solo per revisori
+</div>
+@endif
     @foreach ($articles as $article)
          <div class="col-4 col-lg-4 col-md-4 mb-4">
             <div class="card">

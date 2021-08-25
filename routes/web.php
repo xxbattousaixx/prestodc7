@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,8 @@ Route::resource('articles', ArticleController::class);
 
 // CATEGORIE
 Route::get('/category/{name}/{id}/articles', [PublicController::class, 'articlesByCategory'])->name('public.articles.category');
+
+//Revisor
+Route::get('/revisor/home', [RevisorController::class,'index'])->name('revisor.home');
+Route::post('/revisor/article/{id}/accept',[RevisorController::class,'accept'])->name('revisor.accept');
+Route::post('/revisor/article/{id}/reject',[RevisorController::class,'reject'])->name('revisor.reject');
