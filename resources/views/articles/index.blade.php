@@ -6,9 +6,10 @@
         </div>
     </div>
 </div>
+<div class="row justify-content-center mb-5">
+
 @foreach ($articles as $article)
-    <div class="row justify-content-center mb-5">
-        <div class="col-12 col-md-4">
+        <div class="col-4 col-lg-4 col-md-4 mb-4">
             <div class="card">
                 <div class="card-header">{{ $article->title }}</div>
                 <div class="card-body">
@@ -20,8 +21,8 @@
                 </div>
             </div> 
         </div>
-    </div>
-@endforeach
+   
+@endforeach </div>
 <div class="row justify-content-center">
     <div class="col-md-8">
         {{$articles->links()}}
