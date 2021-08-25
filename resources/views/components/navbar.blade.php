@@ -55,9 +55,14 @@
             </form> 
           </ul> 
         </li>
-        
-         
         @endauth
+        @if(Auth::user()->is_revisor)
+        <li class="nav-item">
+          <a href="{{route('revisor.home')}}" class="nav-link">Home revisore 
+            <span class="text-danger mx-3">{{App\Models\Article::ToBeRevisionedCount()}}</span>
+          </a>
+        @endif
+        </li>
       </ul>      
     </div>
   </nav>

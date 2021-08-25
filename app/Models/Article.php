@@ -22,5 +22,9 @@ class Article extends Model
         return $this->belongsTo(User::class);
         
     }
- 
+    
+    static public function ToBeRevisionedCount()
+    {
+        return Article::where('is_accepted', null)->count();
+    }
 }
