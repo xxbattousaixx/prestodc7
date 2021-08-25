@@ -16,7 +16,7 @@ class AddCategoryIdToArticlesTable extends Migration
         Schema::table('articles', function (Blueprint $table) {
             //? INSERIAMO LA FOREIGN KEY DEGLI CATEGORY
             
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('category_id')->default(1);
 
             $table->foreign('category_id')->references('id')->on('categories');
         });

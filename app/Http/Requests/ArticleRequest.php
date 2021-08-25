@@ -26,6 +26,7 @@ class ArticleRequest extends FormRequest
         return [
             'title' => 'required|min:5|max:120',
             'body' => 'required|max:500',
+            'category_id' => 'numeric'
         ];
     }
 

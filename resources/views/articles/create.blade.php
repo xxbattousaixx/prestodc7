@@ -37,7 +37,7 @@
                         <select name="category_id" class="form-select" aria-label="multiple select example">
                             <option selected>Scegli la categoria</option>
                             @foreach ($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                <option value="{{$category->id }}">{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>
