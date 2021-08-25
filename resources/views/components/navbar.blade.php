@@ -40,9 +40,12 @@
         @endauth
         
         @auth
-          <li class="nav-item">
-            <a class="nav-link" href="#">{{Auth::user()->name}}</a>
-          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{Auth::user()->name}}
+          </a>
+         
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('form-logout').submit();">Logout</a>
@@ -50,6 +53,10 @@
             <form action="{{route('logout')}}" method="POST" id="form-logout">
               @csrf
             </form> 
+          </ul> 
+        </li>
+        
+         
         @endauth
       </ul>      
     </div>
