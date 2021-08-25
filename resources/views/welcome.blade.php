@@ -8,7 +8,7 @@
     <div class="row justify-content-center mb-5">
 
     @foreach ($articles as $article)
-         <div class="col-4 col-lg-4 col-md-4">
+         <div class="col-4 col-lg-4 col-md-4 mb-4">
             <div class="card">
                 <div class="card-header">{{ $article->title }}</div>
 
