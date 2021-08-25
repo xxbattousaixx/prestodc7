@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Pagination\Paginator;
 
 use App\Models\Category;
@@ -29,6 +30,5 @@ class AppServiceProvider extends ServiceProvider
         $categories = Category::all();
         View::share(compact('categories'));
         Paginator::useBootstrap();
-
     }
 }
