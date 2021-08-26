@@ -10,7 +10,7 @@ class PublicController extends Controller
 {
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->take(6)->get();
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
         return view('welcome', compact('articles'));
     }
 
@@ -18,6 +18,6 @@ class PublicController extends Controller
     {
         $category = Category::find($category_id);
         $articles = $category->articles()->orderBy('created_at', 'desc')->paginate(6);
-        return view('categories/index', compact('category','articles'));
+        return view('categories/index', compact('category', 'articles'));
     }
 }

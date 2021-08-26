@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1>Benvenuto Revisore {{Auth::user()->name}}</h1>
+                <h1>Benvenuti in Presto</h1>
             </div>
         </div>
         <div class="row justify-content-center mb-5">
@@ -11,8 +11,8 @@
                 Accesso non consentito -- solo per revisori
             </div>
             @endif
-            @if($article)
-            <div class="col-10 mb-4">
+            @foreach($articles as $article)
+            <div class="col-10 mb-4 mt-4">
                 <div class="card">
                     <div class="card-header">{{ $article->title }}</div>
 
@@ -48,16 +48,12 @@
                 </div>
                 <div class="col-3"></div>
             </div>
-            @else
-            <h2>Non ci sono articoli da revisionare</h2>
-            @endif
+            @endforeach
 
         </div>
 
 
     </div>
-
-    <hr /><a href="{{route('revisor.rejected')}}">Clicca per revisionare gli articoli rifiutati</a>
 
 
 

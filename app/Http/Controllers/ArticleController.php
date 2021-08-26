@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth')->only(['create','store']);
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +21,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(6);
+        $articles = Article::where('is_accepted', true)->paginate(6);
         return view('articles.index', compact('articles'));
     }
 
@@ -35,7 +36,7 @@ class ArticleController extends Controller
         $categories = Category::all();
         return view('articles.create', compact('categories'));
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,13 +46,13 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        Article::create( [ 
-            'title'=>$request->title,
-            'body'=>$request->body,
-            'category_id'=>$request->category_id,
-            'user_id'=>Auth::id()
-            ]);
-        return redirect()->back()->with('message','Articolo inserito');
+        Article::create([
+            'title' => $request->title,
+            'body' => $request->body,
+            'category_id' => $request->category_id,
+            'user_id' => Auth::id()
+        ]);
+        return redirect()->back()->with('message', 'Articolo inserito');
     }
 
     /**
@@ -85,9 +86,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article -> update($request->all());
-        return redirect()->back()->with('msg','Annuncio aggiornato');
-
+        $article->update($request->all());
+        return redirect()->back()->with('msg', 'Annuncio aggiornato');
     }
 
     /**
