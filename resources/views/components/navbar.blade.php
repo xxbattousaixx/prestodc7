@@ -39,6 +39,8 @@
       </li>
       @endauth
 
+      
+
       @auth
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,5 +68,11 @@
         @endauth
       </li>
     </ul>
+
+    <form method="GET" action="{{route('search.results')}}" class="d-flex">
+        <input class="form-control me-2" type="text" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Cerca</button>
+      </form>
   </div>
 </nav>
+

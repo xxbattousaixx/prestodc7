@@ -30,3 +30,4 @@ Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.
 Route::post('/revisor/article/{id}/accept', [RevisorController::class, 'accept'])->name('revisor.accept');
 Route::post('/revisor/article/{id}/reject', [RevisorController::class, 'reject'])->name('revisor.reject');
 Route::get('/revisor/rejected', [RevisorController::class, 'indexRejected'])->name('revisor.rejected');
+Route::get('/search', [PublicController::class,'search'])->name('search.results');
