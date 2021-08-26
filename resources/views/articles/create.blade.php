@@ -1,9 +1,9 @@
 <x-layout>
-
+    <x-headerSec></x-headerSec>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Scrivi un annuncio!</h1>
+                <h1 class="my-5">Scrivi un annuncio!</h1>
                 
                 @if (session('message'))
                 <div class="alert alert-success py-2 shadow my-4">
@@ -18,9 +18,8 @@
                 </div>
                 @endforeach
                 @endif
-                
-                
-                <form action="{{route('articles.store')}}" method="POST" enctype="multipart/form-data">
+
+                <form action="{{route('articles.store')}}" method="POST" enctype="multipart/form-data" class="mb-5">
                     @csrf   
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
@@ -41,14 +40,9 @@
                             @endforeach
                         </select>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Crea</button>
                 </form>
-                
             </div>
         </div>
     </div>
-
-
-    
 </x-layout>

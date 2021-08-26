@@ -17393,3 +17393,43 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  font-family: "Passion One", cursive;
+}
+
+p, li {
+  font-family: "Montserrat", sans-serif;
+}
+
+.header-home {
+  height: 50vh;
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), white), url(https://i1.wp.com/dl.img-news.com/dl/img/s0/dl/2020/09/1471701-559173709.jpeg?fit=%2C&ssl=1);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-sec {
+  height: 20vh;
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), white), url(https://i1.wp.com/dl.img-news.com/dl/img/s0/dl/2020/09/1471701-559173709.jpeg?fit=%2C&ssl=1);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-title-home {
+  margin-top: 140px;
+  font-size: 4rem;
+  text-shadow: 2px 2px 2px #3a3a3a;
+}
+
+.header-title-sec {
+  margin-top: 100px;
+  font-size: 2rem;
+  text-shadow: 2px 2px 2px #3a3a3a;
+}
+
+.card-annuncio {
+  border: 2px dashed #ffbb00;
+  border-radius: 20px;
+  padding: 5px;
+  min-height: 350px;
+}
