@@ -60,9 +60,32 @@
           <a href="{{route('revisor.home')}}" class="nav-link">
             <span class="text-danger mx-3"><strong>{{App\Models\Article::ToBeRevisionedCount()}} annunci da revisionare</strong></span>
           </a>
-      @endif
+        </li>
+        <li class="nav-item">
+          <form action="{{route('locale', 'en')}}" method="POST">
+            @csrf
+          <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
+            <span class="flag-icon flag-icon-gb"></span>
+          </button>
+          </form>
+          </li>     <li class="nav-item">
+            <form action="{{route('locale', 'it')}}" method="POST">
+              @csrf
+            <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
+              <span class="flag-icon flag-icon-it"></span>
+            </button>
+            </form>
+            </li>     <li class="nav-item">
+              <form action="{{route('locale', 'es')}}" method="POST">
+                @csrf
+              <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
+                <span class="flag-icon flag-icon-es"></span>
+              </button>
+              </form>
+              </li>
+          @endif
       @endauth
-      </li>
+      
     </ul>
   </div>
 </nav>
