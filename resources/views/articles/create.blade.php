@@ -22,7 +22,7 @@
                 <form action="{{route('articles.store')}}" method="POST" enctype="multipart/form-data" class="mb-5">
                     @csrf   
                     <div class="mb-3">
-                        <label for="title" class="form-label">Titolo</label>
+                        <label for="title" class="form-label">{{__('ui.title')}}</label>
                         <input name="title" value="{{old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror " id="title" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">

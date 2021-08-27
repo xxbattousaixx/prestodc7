@@ -13,7 +13,7 @@
         <div class="container">
           <div class="row">
               <div class="col-12 text-center">
-                <h1 class="text-center my-5">Registrati!</h1>
+                <h1 class="text-center my-5">{{__('ui.register')}}!</h1>
                 @if (session('message'))
                     <div class="alert alert-success py-2 shadow my-4">
                       <p>{{session('message')}} </p>
@@ -30,7 +30,7 @@
                 <form action="{{route('register')}}" method="POST">
                   @csrf
                   <div class="mb-3">
-                    <label for="name" class="form-label">Nome</label>
+                    <label for="name" class="form-label">{{__('ui.name')}}</label>
                     <input name="name" value="{{old('name')}}" type="text" class="form-control @error('name') is=invalid
                         
                     @enderror"  id="name" aria-describedby="nameHelp">                  
@@ -43,18 +43,18 @@
                   </div>
                   
                   <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">{{__('ui.password')}}</label>
                     <input name="password" value="{{old('password')}}" type="password" class="form-control @error('password') is=invalid
                         
                     @enderror"  id="password" aria-describedby="passwordHelp">                  
                   </div>
                   <div class="mb-3">
-                    <label for="password_confirmation" class="form-label">Conferma Password</label>
+                    <label for="password_confirmation" class="form-label">{{__('ui.conf_password')}}</label>
                     <input name="password_confirmation" value="{{old('password_confirmation')}}" type="password" class="form-control @error('password_confirmation') is=invalid
                         
                     @enderror"  id="password_confirmation" aria-describedby="password_confirmationHelp">                  
                   </div>                 
-                  <button type="submit" class="btn btn-primary">Registrati</button>
+                  <button type="submit" class="btn btn-primary">{{__('ui.register')}}</button>
                 </form>
               </div>          
           </div>

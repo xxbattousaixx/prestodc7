@@ -13,7 +13,7 @@
         <div class="container">
           <div class="row">
               <div class="col-12 text-center">
-                <h1 class="text-center my-5">Loggati!</h1>
+                <h1 class="text-center my-5">{{__('ui.login')}}!</h1>
                 @if (session('message'))
                     <div class="alert alert-success py-2 shadow my-4">
                       <p>{{session('message')}} </p>
@@ -35,11 +35,11 @@
                     @enderror"  id="email" aria-describedby="emailHelp">                  
                   </div>
                   <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">{{__('ui.password')}}</label>
                     <input name="password" value="{{old('password')}}" type="password" class="form-control @error('password') is=invalid
                     @enderror"  id="password" aria-describedby="passwordHelp">                  
                   </div>               
-                  <button type="submit" class="btn btn-primary">Login</button>
+                  <button type="submit" class="btn btn-primary">{{__('ui.login')}}</button>
                 </form>
               </div>          
           </div>

@@ -5,8 +5,8 @@
             <div class="row justify-content-center">
                 <div class="col-8 col-md-6">
                     <form method="GET" action="{{route('search.results')}}" class="d-flex mt-4">
-                        <input class="form-control me-2 shadow" type="text" name="q" placeholder="Cerca un annuncio" aria-label="Search">
-                        <button class="btn btn-outline-success shadow" type="submit">Cerca</button>
+                        <input class="form-control me-2 shadow" type="text" name="q" placeholder="{{__('ui.research')}}" aria-label="Search">
+                        <button class="btn btn-outline-success shadow" type="submit">{{__('ui.search')}}</button>
                     </form>
                 </div>
             </div>
