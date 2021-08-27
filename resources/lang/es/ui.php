@@ -30,6 +30,7 @@ return['welcome' => 'El mejor sitio de anuncios en Alfa Centauri',
  'user'=>'Por usuario',
  'inserted'=>'Anuncio insertado el',
  'cat'=>'Categoria: ',
+ 'logout'=>'Cerrar Sesión',
 
 
 

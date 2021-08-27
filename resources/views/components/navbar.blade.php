@@ -47,7 +47,7 @@
         
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('form-logout').submit();">Logout</a>
+            <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('form-logout').submit();">{{__('ui.logout')}}</a>
           </li>
           <form action="{{route('logout')}}" method="POST" id="form-logout">
             @csrf

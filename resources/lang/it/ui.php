@@ -27,6 +27,7 @@ return['welcome' => 'Il miglior sito di annunci in Alfa Centauri',
  'user'=>'By user',
  'inserted'=>'Annuncio inserito il',
  'cat'=>'Categoria: ',
+ 'logout'=>'Logout',
 
 
 

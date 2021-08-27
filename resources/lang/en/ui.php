@@ -32,6 +32,7 @@ return['welcome' => 'The best announcements site in Alpha Centauri',
  'user'=>'By user',
  'inserted'=>'Announcement inserted on',
  'cat'=>'Category: ',
+ 'logout'=>'Logout',
 
 
 
