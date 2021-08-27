@@ -8,6 +8,8 @@ return['welcome' => 'The best announcements site in Alpha Centauri',
  'search'=>'Search',
  'login'=>'Login',
  'research'=>'Search ad',
+ 'contacts'=>'CONTACTS',
+
  'presentation'=>'The latest announcements inserted',
  'social'=>'Get connected with us on social networks:',
  'products'=>'PRODUCTS',
