@@ -11,7 +11,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Categorie annunci
+          {{__('ui.categories')}}
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           @foreach ($categories as $category)
@@ -22,20 +22,20 @@
       
       @auth
       <li class="nav-item">
-        <a class="nav-link" href="{{route('articles.index')}}">Guarda tutti gli annunci</a>
+        <a class="nav-link" href="{{route('articles.index')}}">{{__('ui.index')}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('articles.create')}}">Crea Annuncio</a>
+        <a class="nav-link" href="{{route('articles.create')}}">{{__('ui.create')}}</a>
       </li>
       @else
       <li class="nav-item">
-        <a class="nav-link" href="{{route('register')}}">Crea Annuncio</a>
+        <a class="nav-link" href="{{route('register')}}">{{__('ui.create')}}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('login')}}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('register')}}">Registrati</a>
+        <a class="nav-link" href="{{route('register')}}">{{__('ui.register')}}</a>
       </li>
       @endauth
       
@@ -58,34 +58,34 @@
       @if(Auth::user()->is_revisor)
         <li class="nav-item">
           <a href="{{route('revisor.home')}}" class="nav-link">
-            <span class="text-danger mx-3"><strong>{{App\Models\Article::ToBeRevisionedCount()}} annunci da revisionare</strong></span>
+            <span class="text-danger mx-3"><strong>{{App\Models\Article::ToBeRevisionedCount()}} {{__('ui.revision')}}</strong></span>
           </a>
         </li>
-        <li class="nav-item">
-          <form action="{{route('locale', 'en')}}" method="POST">
+        
+          @endif
+      @endauth
+      <li class="nav-item">
+        <form action="{{route('locale', 'en')}}" method="POST">
+          @csrf
+        <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
+          <span class="flag-icon flag-icon-gb"></span>
+        </button>
+        </form>
+        </li>     <li class="nav-item">
+          <form action="{{route('locale', 'it')}}" method="POST">
             @csrf
           <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
-            <span class="flag-icon flag-icon-gb"></span>
+            <span class="flag-icon flag-icon-it"></span>
           </button>
           </form>
           </li>     <li class="nav-item">
-            <form action="{{route('locale', 'it')}}" method="POST">
+            <form action="{{route('locale', 'es')}}" method="POST">
               @csrf
             <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
-              <span class="flag-icon flag-icon-it"></span>
+              <span class="flag-icon flag-icon-es"></span>
             </button>
             </form>
-            </li>     <li class="nav-item">
-              <form action="{{route('locale', 'es')}}" method="POST">
-                @csrf
-              <button type="submit" class="nav-link" style="background-color:transparent;border:none;">
-                <span class="flag-icon flag-icon-es"></span>
-              </button>
-              </form>
-              </li>
-          @endif
-      @endauth
-      
+            </li>
     </ul>
   </div>
 </nav>

@@ -1,7 +1,7 @@
 <div class="container-fluid header-home">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-white text-center header-title-home">Il miglior sito di annunci di Alfa Centauri</h1>
+            <h1 class="text-white text-center header-title-home">  {{__('ui.welcome')}} </h1>
             <div class="row justify-content-center">
                 <div class="col-8 col-md-6">
                     <form method="GET" action="{{route('search.results')}}" class="d-flex mt-4">
