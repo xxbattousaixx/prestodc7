@@ -11,7 +11,7 @@
                         </form>
                     </div>
                 </div>
-                <h1 class="text-center mt-5">Ecco cosa ho trovato:</h1>
+                <h1 class="text-center mt-5 mb-4">Ecco cosa ho trovato:</h1>
             </div>
         </div>
     </div>

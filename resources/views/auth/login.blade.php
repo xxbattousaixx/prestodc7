@@ -36,7 +36,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" value="{{old('password')}}" type="text" class="form-control @error('password') is=invalid
+                    <input name="password" value="{{old('password')}}" type="password" class="form-control @error('password') is=invalid
                     @enderror"  id="password" aria-describedby="passwordHelp">                  
                   </div>               
                   <button type="submit" class="btn btn-primary">Login</button>
