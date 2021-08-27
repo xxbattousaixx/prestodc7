@@ -25,17 +25,17 @@
                         <p>{{$article->body}}</p>
                         <div class="row">
                             <div class="col-12">
-                                <strong>Categoria: <a href="{{route('public.articles.category', [$article->category->name, $article->category->id])}}">{{$article->category->name}}</a></strong>
+                                <strong>{{__('ui.cat')}}<a href="{{route('public.articles.category', [$article->category->name, $article->category->id])}}">{{$article->category->name}}</a></strong>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <i>Annuncio inserito il {{ $article->created_at->format('d/m/Y') }}</i>
+                                <i>{{__('ui.inserted')}} {{ $article->created_at->format('d/m/Y') }}</i>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <i>dall'utente <strong>{{ $article->user->name }}</strong></i>
+                                <i>{{__('ui.user')}} <strong>{{ $article->user->name }}</strong></i>
                             </div>
                         </div>
                     </div>

@@ -3,13 +3,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="text-center my-5">Revisiona gli annunci rifiutati</h1>
+                <h1 class="text-center my-5">{{__('ui.revision')}}</h1>
             </div>
         </div>
         <div class="row justify-content-center mb-5">
             @if(session('access.denied.revisor.only'))
             <div class="alert alert-danger">
-                Accesso non consentito -- solo per revisori
+                {{__('ui.access')}}
             </div>
             @endif
             @foreach($articles as $article)
@@ -21,17 +21,17 @@
                                 <p>{{$article->body}}</p>
                                 <div class="row">
                                     <div class="col-12">
-                                        <strong>Categoria: <a href="{{route('public.articles.category', [$article->category->name, $article->category->id])}}">{{$article->category->name}}</a></strong>
+                                        <strong>{{__('ui.cat')}}<a href="{{route('public.articles.category', [$article->category->name, $article->category->id])}}">{{$article->category->name}}</a></strong>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <i>Annuncio inserito il {{ $article->created_at->format('d/m/Y') }}</i>
+                                        <i>{{__('ui.inserted')}} {{ $article->created_at->format('d/m/Y') }}</i>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <i>dall'utente <strong>{{ $article->user->name }}</strong></i>
+                                        <i>{{__('ui.user')}} <strong>{{ $article->user->name }}</strong></i>
                                     </div>
                                 </div>
                                 </div>
@@ -46,13 +46,13 @@
                         <div class="col-6 d-flex justify-content-evenly">
                             <form action="{{route('revisor.accept',$article->id)}}" Method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-success">Accetta</button>
+                                <button type="submit" class="btn btn-success">{{__('ui.accept')}}</button>
                             </form>
                         </div>
                         <div class="col-6 d-flex justify-content-evenly">
                             <form action="{{route('revisor.reject',$article->id)}}" Method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-danger">Rifiuta</button>
+                                <button type="submit" class="btn btn-danger">{{__('ui.reject')}}</button>
                             </form>
                         </div>
                     </div>

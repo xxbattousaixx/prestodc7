@@ -16,6 +16,23 @@ return['welcome' => 'The best announcements site in Alpha Centauri',
  'conf_password'=>'Confirm Password',
  'name'=>'Name',
  'title'=>'Title',
+ 'all'=>'All the articles',
+ 'all'=>'All the articles',
+ 'access'=>'Access not granted -- only for revisors',
+ 'welcome'=>'Welcome revisor ',
+ 'click'=>'Click to see all rejected articles',
+ 'none'=>'There are no articles for revision',
+ 'write'=>'Write an article!',
+ 'reject'=>'Reject',
+ 'accept'=>'Accept',
+ 'pick'=>'Choose a category',
+ 'msg'=>'Write your message',
+ 'user'=>'By user',
+ 'inserted'=>'Announcement inserted on',
+ 'cat'=>'Category: ',
+
+
+
 
 
 

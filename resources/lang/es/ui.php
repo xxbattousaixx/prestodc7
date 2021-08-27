@@ -16,6 +16,26 @@ return['welcome' => 'El mejor sitio de anuncios en Alfa Centauri',
  'password'=>'Contraseña',
  'conf_password'=>'Confirma Contraseña',
  'name'=>'Nombre',
- 'title'=>'Titolo',
+ 'title'=>'Titulo',
+ 'all'=>'Todos los anuncios',
+ 'access'=>'Acceso negado -- solo para revisores',
+ 'welcome'=>'Bienvenidos revisor ',
+ 'click'=>'Click para ver todos los anuncios rechazados',
+ 'none'=>'No hay articulos para revisionar',
+ 'write'=>'Escribe un anuncio!',
+ 'reject'=>'Rechazar',
+ 'accept'=>'Aceptar',
+ 'pick'=>'Escoge la categoria',
+ 'msg'=>'Escribe tu mensaje',
+ 'user'=>'Por usuario',
+ 'inserted'=>'Anuncio insertado el',
+ 'cat'=>'Categoria: ',
+
+
+
+
+
+
+
 
 ];

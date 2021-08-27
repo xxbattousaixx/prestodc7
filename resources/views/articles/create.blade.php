@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="my-5">Scrivi un annuncio!</h1>
+                <h1 class="my-5">{{__('ui.write')}}</h1>
                 
                 @if (session('message'))
                 <div class="alert alert-success py-2 shadow my-4">
@@ -26,7 +26,7 @@
                         <input name="title" value="{{old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror " id="title" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <textarea name="body" class="form-control @error('body') is-invalid @enderror"  placeholder="Scrivi il tuo messaggio" id="" cols="30" rows="10">{{old('body')}}</textarea>
+                        <textarea name="body" class="form-control @error('body') is-invalid @enderror"  placeholder="{{__('ui.msg')}}" id="" cols="30" rows="10">{{old('body')}}</textarea>
                     </div>
                     {{-- <div class="mb-3">
                         <input name="img" type="file" class="form-control">
@@ -34,13 +34,13 @@
 
                     <div class="mb-3">
                         <select name="category_id" class="form-select" aria-label="multiple select example">
-                            <option selected>Scegli la categoria</option>
+                            <option selected>{{__('ui.pick')}}</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category->id }}">{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Crea</button>
+                    <button type="submit" class="btn btn-primary">{{__('ui.create')}}</button>
                 </form>
             </div>
         </div>
