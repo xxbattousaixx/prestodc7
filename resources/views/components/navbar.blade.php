@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-  <a class="navbar-brand ms-3 fw-bold fs-4" href="#">Presto.it</a>
+  <a class="navbar-brand ms-3 fw-bold fs-4" href="/">Presto.it</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

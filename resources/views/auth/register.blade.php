@@ -1,6 +1,6 @@
 <x-layout>
+  <x-headerSec></x-headerSec>
     <x-slot name="title">Register!</x-slot>
-  
     <x-slot name="style">
       <style>
         body{
@@ -8,36 +8,26 @@
         }
       </style>
     </x-slot>
-  
     <x-slot name="scripts">
-  
     </x-slot>
         <div class="container">
           <div class="row">
               <div class="col-12 text-center">
-                 <h1>Registrati!</h1>
-  
-                 @if (session('message'))
-                     <div class="alert alert-success py-2 shadow my-4">
-                       <p>{{session('message')}} </p>
-                     </div>
-                     
-                 @endif
-  
-                 @if ($errors->any())
-                   @foreach ($errors->all() as $error)
+                <h1 class="text-center my-5">Registrati!</h1>
+                @if (session('message'))
+                    <div class="alert alert-success py-2 shadow my-4">
+                      <p>{{session('message')}} </p>
+                    </div>
+                @endif
+                @if ($errors->any())
+                  @foreach ($errors->all() as $error)
                     <div class="alert alert-danger shadow my-4 py-2">
                       <p>{{$error}} </p>
-  
                     </div>
-                     
-                 @endforeach
-                     
-                 @endif
-  
-  
-                 <!--Form -->
-                 <form action="{{route('register')}}" method="POST">
+                  @endforeach
+                @endif
+                <!--Form -->
+                <form action="{{route('register')}}" method="POST">
                   @csrf
                   <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
@@ -66,7 +56,6 @@
                   </div>                 
                   <button type="submit" class="btn btn-primary">Registrati</button>
                 </form>
-  
               </div>          
           </div>
         </div>
