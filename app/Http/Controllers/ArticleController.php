@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Jobs\ResizeImage;
 use App\Models\ArticleImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -71,6 +72,12 @@ class ArticleController extends Controller
             $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image, $newFileName);
 
+            dispatch(new ResizeImage(
+                $newFileName,
+                300,
+                150
+            ));
+
             $i->file = $newFileName;
             $i->article_id = $article->id;
             $i->save();
@@ -110,7 +117,7 @@ class ArticleController extends Controller
         foreach($images as $image){
             $data[]=[
                 'id'=>$image,
-                'src'=>Storage::url($image)
+                'src'=>ArticleImage::getUrlByFilePath($image, 120, 120)
             ];
         };
 
@@ -145,6 +152,12 @@ class ArticleController extends Controller
         $uniqueSecret = $request->input('uniqueSecret');
 
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+
+        dispatch(new ResizeImage(
+            $fileName,
+            120,
+            120
+        ));
 
         session()->push("images.{$uniqueSecret}", $fileName);
 

@@ -46,7 +46,7 @@
 @foreach($article->images as $image)
                             <div class="row">
                             <div class="col-12">
-                                <img src="{{Storage::url($image->file)}}" class="img-fluid rounded h-100" alt="">
+                                <img src="{{$image->getUrl(300, 150)}}" class="img-fluid rounded h-100" alt="">
                             </div>
 
                             <div class="col-8">
