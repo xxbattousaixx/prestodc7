@@ -36,8 +36,6 @@ class ArticleController extends Controller
 
         $categories = Category::all();
         return view('articles.create', compact('categories', 'uniqueSecret'));
-
-        
     }
 
 
@@ -53,13 +51,12 @@ class ArticleController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             'category_id' => $request->category_id,
-            'user_id' => Auth::id()            
-            
+            'user_id' => Auth::id()
+
         ]);
 
         $uniqueSecret = $request->input('uniqueSecret');
 
-        dd($uniqueSecret);
 
         return redirect()->back()->with('message', 'Articolo inserito');
     }
@@ -110,6 +107,16 @@ class ArticleController extends Controller
         //
     }
 
-    
-}
+    public function uploadImage(Request $request)
+    {
+        $uniqueSecret = $request->input('uniqueSecret');
 
+        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+
+        session()->push("images.{$uniqueSecret}", $fileName);
+
+        return response()->json(
+            session()->get("images.{$uniqueSecret}")
+        );
+    }
+}

@@ -32,7 +32,10 @@ Route::post('/revisor/article/{id}/reject', [RevisorController::class, 'reject']
 Route::get('/revisor/rejected', [RevisorController::class, 'indexRejected'])->name('revisor.rejected');
 
 //SEARCH
-Route::get('/search', [PublicController::class,'search'])->name('search.results');
+Route::get('/search', [PublicController::class, 'search'])->name('search.results');
 
 //LOCALE
 Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('locale');
+
+//Imagini
+Route::post('/article/images/upload', [ArticleController::class, 'uploadImage'])->name('article.images.upload');
