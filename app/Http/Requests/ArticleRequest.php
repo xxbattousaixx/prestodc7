@@ -37,7 +37,8 @@ class ArticleRequest extends FormRequest
             'title.min' => 'Il titolo deve avere un minimo di 5 caratteri',
             'title.max' => 'Il titolo non può contenere più di 120 caratteri',
             'body.required' => 'Il testo è obbligatorio',
-            'body.max' => 'Il testo non può essere più lungo di 500 caratteri'
+            'body.max' => 'Il testo non può essere più lungo di 500 caratteri',
+            'category_id.numeric' => 'Devi selezionare una categoria'
         ];
     }
 }

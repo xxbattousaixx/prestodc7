@@ -1,0 +1,44 @@
+// FONT
+
+h1, h2, h3, h4 {
+    font-family: 'Passion One', cursive;
+}
+
+p, li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+// CSS CUSTOM
+
+.header-home {
+    height: 50vh;
+    background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), rgb(255, 255, 255)),url(https://i1.wp.com/dl.img-news.com/dl/img/s0/dl/2020/09/1471701-559173709.jpeg?fit=%2C&ssl=1);
+    background-size: cover;
+    background-position: center;
+}
+
+.header-sec {
+    height: 20vh;
+    background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), rgb(255, 255, 255)),url(https://i1.wp.com/dl.img-news.com/dl/img/s0/dl/2020/09/1471701-559173709.jpeg?fit=%2C&ssl=1);
+    background-size: cover;
+    background-position: center;
+}
+
+.header-title-home {
+    margin-top: 140px;
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px rgb(58, 58, 58);
+}
+
+.header-title-sec {
+    margin-top: 100px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px rgb(58, 58, 58);
+}
+
+.card-annuncio {
+    border: 2px dashed rgb(255, 187, 0);
+    border-radius: 20px;
+    padding: 5px;
+    min-height: 350px;
+}
