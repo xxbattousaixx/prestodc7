@@ -20,7 +20,9 @@
                 @endif
 
                 <form action="{{route('articles.store')}}" method="POST" enctype="multipart/form-data" class="mb-5">
-                    @csrf   
+                    @csrf 
+                    <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
+
                     <div class="mb-3">
                         <label for="title" class="form-label">{{__('ui.title')}}</label>
                         <input name="title" value="{{old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror " id="title" aria-describedby="emailHelp">
