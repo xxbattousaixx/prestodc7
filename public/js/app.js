@@ -3160,7 +3160,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return document.querySelectorAll(selector)[0].getAttribute(attributeName);
     };
 
-    console.log("ciao");
     var csrfToken = getAttribute('meta[name="csrf-token"]', 'content');
     var uniqueSecret = getAttribute('input[name="uniqueSecret"]', 'value');
     var myDropzone = new window.Dropzone('#drophere', {
@@ -3168,7 +3167,41 @@ document.addEventListener("DOMContentLoaded", function () {
       params: {
         _token: csrfToken,
         uniqueSecret: uniqueSecret
+      },
+      addRemoveLinks: true,
+      init: function init() {
+        $.ajax({
+          type: 'GET',
+          url: 'article/images',
+          data: {
+            uniqueSecret: uniqueSecret
+          },
+          datatype: 'json'
+        }).done(function (data) {
+          $.each(data, function (key, value) {
+            var file = {
+              serverId: value.id
+            };
+            myDropzone.options.addedfile.call(myDropzone, file);
+            myDropzone.options.thumbnail.call(myDropzone, file, value.src);
+          });
+        });
       }
+    });
+    myDropzone.on("success", function (file, response) {
+      file.serverId = response.id;
+    });
+    myDropzone.on("removedfile", function (file) {
+      $.ajax({
+        type: 'DELETE',
+        url: '/article/images/remove',
+        data: {
+          _token: csrfToken,
+          id: file.serverId,
+          uniqueSecret: uniqueSecret
+        },
+        dataType: 'json'
+      });
     });
   }
 });

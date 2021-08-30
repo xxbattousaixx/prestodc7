@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
-use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\ArticleImage;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -30,11 +33,13 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
+        $uniqueSecret = $request->old('uniqueSecret', base_convert(sha1(uniqid(mt_rand())), 16, 36));
 
         $categories = Category::all();
+
+
         return view('articles.create', compact('categories', 'uniqueSecret'));
     }
 
@@ -47,16 +52,31 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'body' => $request->body,
             'category_id' => $request->category_id,
             'user_id' => Auth::id()
 
         ]);
-
+      
         $uniqueSecret = $request->input('uniqueSecret');
+        $images = session()->get("images.{$uniqueSecret}",[]);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+        $images = array_diff($images, $removedImages);
 
+        foreach($images as $image){
+            $i = new ArticleImage();
+            $fileName = basename($image);
+            $newFileName = "public/articles/{$article->id}/{$fileName}";
+            Storage::move($image, $newFileName);
+
+            $i->file = $newFileName;
+            $i->article_id = $article->id;
+            $i->save();
+        };
+
+        File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
 
         return redirect()->back()->with('message', 'Articolo inserito');
     }
@@ -82,7 +102,20 @@ class ArticleController extends Controller
     {
         //
     }
+    public function getImages(Request $request){
+        $uniqueSecret = $request ->input('uniqueSecret');
+        $images = session()->get("images.{$uniqueSecret}",[]);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+        $data=[];
+        foreach($images as $image){
+            $data[]=[
+                'id'=>$image,
+                'src'=>Storage::url($image)
+            ];
+        };
 
+        return response()->json($data);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -116,7 +149,18 @@ class ArticleController extends Controller
         session()->push("images.{$uniqueSecret}", $fileName);
 
         return response()->json(
-            session()->get("images.{$uniqueSecret}")
+            [
+                'id'=>$fileName
+            ]
         );
+    }
+    public function removeImage(Request $request){
+
+        $uniqueSecret = $request->input('uniqueSecret');
+
+        $fileName = $request->input('id');
+        session()->push("removedimages.{$uniqueSecret}", $fileName);
+        Storage::delete($fileName);
+        return response()->json('ok');
     }
 }

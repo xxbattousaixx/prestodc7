@@ -43,9 +43,19 @@
                                     </div>
                                 </div>
                                 </div>
-                            <div class="col-4">
-                                <img src="https://picsum.photos/300/500" class="img-fluid rounded h-100" alt="">
+@foreach($article->images as $image)
+                            <div class="row">
+                            <div class="col-12">
+                                <img src="{{Storage::url($image->file)}}" class="img-fluid rounded h-100" alt="">
                             </div>
+
+                            <div class="col-8">
+                                {{$image->id}}<br/>
+                                {{$image->file}}<br/>
+                                {{Storage::url($image->file)}}<br/>
+                            </div>
+                             </div>
+@endforeach
                         </div>
                     </div>
                 </div>

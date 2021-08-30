@@ -39,3 +39,5 @@ Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('loca
 
 //Imagini
 Route::post('/article/images/upload', [ArticleController::class, 'uploadImage'])->name('article.images.upload');
+Route::delete('/article/images/remove', [ArticleController::class, 'removeImage'])->name('article.images.remove');
+Route::get('/article/images', [ArticleController::class, 'getImages'])->name('article.images');

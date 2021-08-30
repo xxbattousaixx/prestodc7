@@ -24,7 +24,10 @@ class Article extends Model
         return $array;
         
     }
-
+    public function images(){
+        return $this->hasMany(ArticleImage::class);
+    }
+   
     public function category()
     {
         return $this->belongsTo(Category::class);
