@@ -65,7 +65,7 @@ class ArticleController extends Controller
         $images = session()->get("images.{$uniqueSecret}",[]);
         $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
         $images = array_diff($images, $removedImages);
-
+        
         foreach($images as $image){
             $i = new ArticleImage();
             $fileName = basename($image);
@@ -78,6 +78,8 @@ class ArticleController extends Controller
                 150
             ));
 
+
+            
             $i->file = $newFileName;
             $i->article_id = $article->id;
             $i->save();
@@ -113,13 +115,15 @@ class ArticleController extends Controller
         $uniqueSecret = $request ->input('uniqueSecret');
         $images = session()->get("images.{$uniqueSecret}",[]);
         $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+        $images = array_diff($images, $removedImages);
+
         $data=[];
         foreach($images as $image){
             $data[]=[
                 'id'=>$image,
                 'src'=>ArticleImage::getUrlByFilePath($image, 120, 120)
             ];
-        };
+        }
 
         return response()->json($data);
     }
