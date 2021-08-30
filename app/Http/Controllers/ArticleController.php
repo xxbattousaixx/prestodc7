@@ -32,9 +32,12 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $uniqueSecret = base_convert(sha1(uniqid(mt_rand())), 16, 36);
 
         $categories = Category::all();
-        return view('articles.create', compact('categories'));
+        return view('articles.create', compact('categories', 'uniqueSecret'));
+
+        
     }
 
 
@@ -50,8 +53,14 @@ class ArticleController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             'category_id' => $request->category_id,
-            'user_id' => Auth::id()
+            'user_id' => Auth::id()            
+            
         ]);
+
+        $uniqueSecret = $request->input('uniqueSecret');
+
+        dd($uniqueSecret);
+
         return redirect()->back()->with('message', 'Articolo inserito');
     }
 
@@ -100,4 +109,7 @@ class ArticleController extends Controller
     {
         //
     }
+
+    
 }
+
