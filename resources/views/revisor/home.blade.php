@@ -49,7 +49,7 @@
                                 @foreach($article->images as $image)
                         
                                     <div class="carousel-item @if($loop->first) active @endif">
-                                        <img class="d-block w-100" src="{{$image->getUrl()}}">
+                                        <img class="d-block w-100" src="{{$image->getUrl(300, 150)}}">
                                       </div>
                                    
         

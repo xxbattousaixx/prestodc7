@@ -78,14 +78,6 @@ class ArticleController extends Controller
                 150
             ));
 
-            dispatch(new ResizeImage(
-                $fileName,
-                400,
-                300
-            ));
-
-
-
             $i->file = $newFileName;
             $i->article_id = $article->id;
             $i->save();
