@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ArticleImage extends Model
 {
-    public function article(){
+    public function article()
+    {
         return $this->belongsTo(Article::class);
     }
 

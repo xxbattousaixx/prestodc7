@@ -60,13 +60,13 @@ class ArticleController extends Controller
             'user_id' => Auth::id()
 
         ]);
-      
+
         $uniqueSecret = $request->input('uniqueSecret');
-        $images = session()->get("images.{$uniqueSecret}",[]);
-        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+        $images = session()->get("images.{$uniqueSecret}", []);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
         $images = array_diff($images, $removedImages);
-        
-        foreach($images as $image){
+
+        foreach ($images as $image) {
             $i = new ArticleImage();
             $fileName = basename($image);
             $newFileName = "public/articles/{$article->id}/{$fileName}";
@@ -78,8 +78,14 @@ class ArticleController extends Controller
                 150
             ));
 
+            dispatch(new ResizeImage(
+                $fileName,
+                400,
+                300
+            ));
 
-            
+
+
             $i->file = $newFileName;
             $i->article_id = $article->id;
             $i->save();
@@ -111,17 +117,19 @@ class ArticleController extends Controller
     {
         //
     }
-    public function getImages(Request $request){
-        $uniqueSecret = $request ->input('uniqueSecret');
-        $images = session()->get("images.{$uniqueSecret}",[]);
-        $removedImages = session()->get("removedimages.{$uniqueSecret}",[]);
+    public function getImages(Request $request)
+    {
+        $uniqueSecret = $request->input('uniqueSecret');
+
+        $images = session()->get("images.{$uniqueSecret}", []);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
         $images = array_diff($images, $removedImages);
 
-        $data=[];
-        foreach($images as $image){
-            $data[]=[
-                'id'=>$image,
-                'src'=>ArticleImage::getUrlByFilePath($image, 120, 120)
+        $data = [];
+        foreach ($images as $image) {
+            $data[] = [
+                'id' => $image,
+                'src' => ArticleImage::getUrlByFilePath($image, 120, 120)
             ];
         }
 
@@ -167,11 +175,12 @@ class ArticleController extends Controller
 
         return response()->json(
             [
-                'id'=>$fileName
+                'id' => $fileName
             ]
         );
     }
-    public function removeImage(Request $request){
+    public function removeImage(Request $request)
+    {
 
         $uniqueSecret = $request->input('uniqueSecret');
 
