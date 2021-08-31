@@ -11,6 +11,7 @@ return [
     'products' => 'PRODOTTI',
     'links' => 'LINKS UTILI',
     'contacts' => 'CONTATTI',
+    'research' => 'Cerca anuncio',
     'password' => 'Password',
     'conf_password' => 'Conferma Password',
     'name' => 'Nome',

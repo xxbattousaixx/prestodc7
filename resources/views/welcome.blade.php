@@ -44,16 +44,17 @@
                             </div>
                         </div>
                         @foreach($article->images as $image)
+                        <hr>
                         <div class="row">
                             <div class="col-12">
                                 <img src="{{$image->getUrl()}}" class="img-fluid rounded h-100" alt="">
                             </div>
 
-                            <div class="col-8">
+                            {{-- <div class="col-8">
                                 {{$image->id}}<br />
                                 {{$image->file}}<br />
                                 {{Storage::url($image->file)}}<br />
-                            </div>
+                            </div> --}}
                         </div>
                         @endforeach
                     </div>
