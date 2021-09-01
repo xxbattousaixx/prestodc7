@@ -17,7 +17,7 @@ use App\Http\Controllers\RevisorController;
 |
 */
 
-Route::get('/', [PublicController::class, 'index']);
+Route::get('/', [PublicController::class, 'index'])->name('welcome');
 
 // CRUD ANNUNCI
 Route::resource('articles', ArticleController::class);
@@ -41,3 +41,7 @@ Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('loca
 Route::post('/article/images/upload', [ArticleController::class, 'uploadImage'])->name('article.images.upload');
 Route::delete('/article/images/remove', [ArticleController::class, 'removeImage'])->name('article.images.remove');
 Route::get('/article/images', [ArticleController::class, 'getImages'])->name('article.images');
+
+//Richiesta revisore
+Route::get('/contattaci', [PublicController::class, 'contactUs'])->name('contactUs');
+Route::post('/contattaci/salvataggio', [PublicController::class, 'saveContact'])->name('saveContact');

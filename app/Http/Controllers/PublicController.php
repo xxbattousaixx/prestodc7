@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailReceived;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PublicController extends Controller
 {
@@ -20,15 +22,28 @@ class PublicController extends Controller
         $articles = $category->articles()->orderBy('created_at', 'desc')->paginate(6);
         return view('categories/index', compact('category', 'articles'));
     }
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $q = $request->input('q');
         $articles = Article::search($q)->paginate(6);
-        return view('search.results', compact('q','articles'));
-
+        return view('search.results', compact('q', 'articles'));
     }
-    public function locale($locale){
+    public function locale($locale)
+    {
         session()->put('locale', $locale);
         return redirect()->back();
+    }
 
+    public function contactUs()
+    {
+        return view('contactUs');
+    }
+
+    public function saveContact(Request $request)
+    {
+        $contact = $request->all();
+        Mail::to('emailAdmin@gmail.com')->send(new MailReceived($contact));
+
+        return redirect(route('welcome'))->with('message', 'Contatto inviato correttamente');
     }
 }
