@@ -36,8 +36,7 @@ class GoogleVisionWatermark implements ShouldQueue
     public function handle()
     {
         $i = ArticleImage::find($this->article_image_id);
-        if(!$i)
-        {
+        if (!$i) {
             return;
         }
 
@@ -49,15 +48,15 @@ class GoogleVisionWatermark implements ShouldQueue
         $imageAnnotator = new ImageAnnotatorClient();
 
 
-            $image=Image::load($srcPath);
-            $image->watermark(base_path('resources/img/watermark.png'))
-            ->watermarkOpacity(50)
+        $image = Image::load($srcPath);
+        $image->watermark(base_path('resources/img/watermark.png'))
+            ->watermarkOpacity(70)
             ->watermarkPosition(Manipulations::POSITION_CENTER)
-            ->watermarkHeight(10, Manipulations::UNIT_PERCENT)    
-            ->watermarkWidth(10, Manipulations::UNIT_PERCENT); 
-             
-            $image->save($srcPath);
-        
+            ->watermarkHeight(40, Manipulations::UNIT_PERCENT)
+            ->watermarkWidth(40, Manipulations::UNIT_PERCENT);
+
+        $image->save($srcPath);
+
         $imageAnnotator->close();
     }
 }
