@@ -3136,13 +3136,14 @@ function within(min, value, max) {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
 __webpack_require__(/*! ./script */ "./resources/js/script.js");
 
 __webpack_require__(/*! ./articleImages */ "./resources/js/articleImages.js");
 
-window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 document.Dropzone = __webpack_require__(/*! dropzone */ "./node_modules/dropzone/dist/dropzone.js");
 Dropzone.autoDiscover = false;
 
