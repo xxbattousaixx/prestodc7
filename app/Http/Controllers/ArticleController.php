@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 use App\Http\Requests\ArticleRequest;
 use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionRemoveFaces;
+use App\Jobs\GoogleVisionWatermark;
 
 use App\Jobs\GoogleVisionSafeSearchImage;
 use Illuminate\Support\Facades\Storage;
@@ -84,6 +85,7 @@ class ArticleController extends Controller
 GoogleVisionSafeSearchImage::withChain([
     new GoogleVisionLabelImage($i->id),
     new GoogleVisionRemoveFaces($i->id),
+    new GoogleVisionWatermark($i->id),
     new ResizeImage($i->file,300,150)
 
     ])->dispatch($i->id);
