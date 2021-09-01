@@ -43,32 +43,42 @@
                             </div>
                         </div>
                         <div class="col-6 justify-content-center">
-                        <div id="cat-{{$article->id}}" class="carousel slide" data-bs-ride="carousel">
-                           
-                            <div class="carousel-inner">
-                                @foreach($article->images as $image)
-                        
+                            <div id="cat-{{$article->id}}" class="carousel slide" data-bs-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    @foreach($article->images as $image)
+
                                     <div class="carousel-item @if($loop->first) active @endif">
                                         <img class="d-block w-100" src="{{$image->getUrl(300, 150)}}">
-                                      </div>
-                                   
-        
-                                    {{-- <div class="col-8">
-                                        {{$image->id}}<br />
-                                        {{$image->file}}<br />
-                                        {{Storage::url($image->file)}}<br />
-                                    </div> --}}
-                                @endforeach
+                                        <div class="col-12">
+                                            adult: {{$image->adult}}<br />
+                                            spoof: {{$image->spoof}}<br />
+                                            medical: {{$image->medical}}<br />
+                                            violence: {{$image->violence}}<br />
+                                            racy: {{$image->racy}}<br />
+
+                                            <b>Labels</b><br>
+                                            <ul>
+                                                @if ($image->labels)
+                                                @foreach ($image->labels as $label)
+                                                <li>{{$label}}</li>
+                                                @endforeach
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    @endforeach
+                                </div>
+                                <a class="carousel-control-prev" data-bs-target="#cat-{{$article->id}}" role="button" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" data-bs-target="#cat-{{$article->id}}" role="button" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </a>
                             </div>
-                            <a class="carousel-control-prev" data-bs-target="#cat-{{$article->id}}" role="button" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" data-bs-target="#cat-{{$article->id}}" role="button" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </a>
-                          </div>
                         </div>
                     </div>
                 </div>

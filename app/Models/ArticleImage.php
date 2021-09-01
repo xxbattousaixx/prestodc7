@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ArticleImage extends Model
 {
+    protected $casts = [
+        'labels' => 'array',
+    ];
+
     public function article()
     {
         return $this->belongsTo(Article::class);

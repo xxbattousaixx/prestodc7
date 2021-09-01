@@ -13,7 +13,7 @@ use Google\Cloud\Core\ServiceBuilder;
 use Google\Cloud\Vision\V1\ImageAnnotatorClient;
 
 
-class GoogleVisionSafeSearchImage implements ShouldQueue
+class GoogleVisionLabelImage implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -38,29 +38,20 @@ class GoogleVisionSafeSearchImage implements ShouldQueue
         putenv('GOOGLE_APPLICATION_CREDENTIALS=' . base_path('google_credential.json'));
 
         $imageAnnotator = new ImageAnnotatorClient();
-        $response = $imageAnnotator->safeSearchDetection($image);
+        $response = $imageAnnotator->labelDetection($image);
+        $labels = $response->getLabelAnnotations();
+
+
+        if ($labels) {
+
+            $result = [];
+            foreach ($labels as $label) {
+                $result[] = $label->getDescription();
+            }
+            $i->labels = $result;
+            $i->save();
+        }
+
         $imageAnnotator->close();
-
-        $safe = $response->getSafeSearchAnnotation();
-
-        $adult = $safe->getAdult();
-        $medical = $safe->getMedical();
-        $spoof = $safe->getSpoof();
-        $violence = $safe->getViolence();
-        $racy = $safe->getRacy();
-
-        //echo json_encode([$adult, $medical, $spoof, $violence, $racy]);
-
-        $likelihoodName = [
-            'UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'
-        ];
-
-        $i->adult = $likelihoodName[$adult];
-        $i->medical = $likelihoodName[$medical];
-        $i->spoof = $likelihoodName[$spoof];
-        $i->violence = $likelihoodName[$violence];
-        $i->racy = $likelihoodName[$racy];
-
-        $i->save();
     }
 }
