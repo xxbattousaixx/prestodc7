@@ -34,6 +34,7 @@ return [
     'inserted' => 'Announcement inserted on',
     'cat' => 'Category: ',
     'logout' => 'Logout',
+    'price' => 'Price',
 
 
 

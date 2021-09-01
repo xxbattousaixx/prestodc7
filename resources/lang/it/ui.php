@@ -30,6 +30,7 @@ return [
     'inserted' => 'Annuncio inserito il',
     'cat' => 'Categoria: ',
     'logout' => 'Logout',
+    'price' => 'Prezzo',
 
 
 

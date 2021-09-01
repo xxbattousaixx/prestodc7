@@ -62,6 +62,16 @@
             <span class="text-danger mx-3"><strong>{{App\Models\Article::ToBeRevisionedCount()}} {{__('ui.revision')}}</strong></span>
           </a>
         </li>
+        @else 
+        <div class="float-end">
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a href="{{route('contactUs')}}" class="nav-link">
+                <span class="text-danger mx-3"><strong>Ciao, {{Auth::user()->name}} richiedi di diventare revisore!</strong></span>
+              </a>
+            </li>
+          </ul>
+        </div>
 
         @endif
 
@@ -91,17 +101,7 @@
           </form>
         </li>
 
-        @if(!Auth::user()->is_revisor)
-        <div class="float-end">
-          <ul class="nav justify-content-end">
-            <li class="nav-item">
-              <a href="{{route('contactUs')}}" class="nav-link">
-                <span class="text-danger mx-3"><strong>Ciao, {{Auth::user()->name}} richiedi di diventare revisore!</strong></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        @endif
+        
       </ul>
 
 

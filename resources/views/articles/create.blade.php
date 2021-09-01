@@ -34,6 +34,15 @@
                         <input name="img" type="file" class="form-control">
                     </div> --}}
 
+                    <div class="row mb-3 justify-content-left">
+                        <div class="col-2">
+                        <label for="price" class="form-label">{{__('ui.price')}}</label>    
+                        <input name="price" value="{{old('price')}}" type="text" class="form-control"  id="price">                        
+                        </div>
+                        <div class="col-10">                         
+                        </div>                       
+                    </div>
+
                     <div class="mb-3">
                         <select name="category_id" class="form-select" aria-label="multiple select example">
                             <option selected>{{__('ui.pick')}}</option>

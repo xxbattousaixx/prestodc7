@@ -26,6 +26,7 @@
                         <div class="col-6">
                             <h3>{{$article->title}}</h3>
                             <p>{{$article->body}}</p>
+                            <h3>€ {{$article->price}}</h3>
                             <div class="row">
                                 <div class="col-12">
                                     <strong>{{__('ui.cat')}}<a href="{{route('public.articles.category', [$article->category->name, $article->category->id])}}">{{$article->category->name}}</a></strong>

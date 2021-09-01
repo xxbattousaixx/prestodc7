@@ -12,7 +12,7 @@ class Article extends Model
 
     use Searchable;
 
-    protected $fillable = ['title', 'body', 'category_id', 'user_id'];
+    protected $fillable = ['title', 'body', 'category_id', 'user_id', 'price'];
 
     public function toSearchableArray(){
 
@@ -20,6 +20,7 @@ class Article extends Model
             "id" => $this->id,
             "title" => $this->title,
             "body"=> $this->body,
+            "price"=> $this->price,
         ];
         return $array;
         
