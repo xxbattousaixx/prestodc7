@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ArticleRequest;
 use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionRemoveFaces;
+
 use App\Jobs\GoogleVisionSafeSearchImage;
 use Illuminate\Support\Facades\Storage;
 
@@ -74,18 +76,18 @@ class ArticleController extends Controller
             $newFileName = "public/articles/{$article->id}/{$fileName}";
             Storage::move($image, $newFileName);
 
-            dispatch(new ResizeImage(
-                $newFileName,
-                300,
-                150
-            ));
-
+        
             $i->file = $newFileName;
             $i->article_id = $article->id;
             $i->save();
 
-            dispatch(new GoogleVisionSafeSearchImage($i->id));
-            dispatch(new GoogleVisionLabelImage($i->id));
+GoogleVisionSafeSearchImage::withChain([
+    new GoogleVisionLabelImage($i->id),
+    new GoogleVisionRemoveFaces($i->id),
+    new ResizeImage($i->file,300,150)
+
+    ])->dispatch($i->id);
+
         };
 
         File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
