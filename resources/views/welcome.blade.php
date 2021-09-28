@@ -22,6 +22,7 @@
         <div class="row justify-content-center align-items-center">
             @foreach ($articles as $article)
             <div class="col-12 col-md-3 mx-5 mb-5 card-annuncio d-flex align-items-center">
+
                 <div class="container">
                     <div class="row">
                         <div class="col-8">
@@ -43,7 +44,7 @@
                                     <i>{{__('ui.user')}} <strong>{{ $article->user->name }}</strong></i>
                                 </div>
                             </div>
-                        </div>
+                      </div>
 
                         <div id="cat-{{$article->id}}" class="carousel slide" data-bs-ride="carousel">
                            
@@ -71,10 +72,18 @@
                               <span class="visually-hidden">Next</span>
                             </a>
                           </div>
-                        
-                    </div>
+                          <div class="row mt-4 mb-2">
+                            <div class="col-12">
+                                <a class='btn btn-warning' href='{{route('articles.show', compact('article'))}}'>VISUALIZZA</a>
+                             </div>
+                          </div> 
+                
+                      </div>
+                      
                 </div>
+               
             </div>
+       
             @endforeach
         </div>
     </div>

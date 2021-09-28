@@ -62,7 +62,11 @@
                                     </a>
                                   </div>
                                 </div>
-
+                                <div class="row mt-4 mb-2">
+                                    <div class="col-12">
+                                        <a class='btn btn-warning' href='{{route('articles.show', compact('article'))}}'>VISUALIZZA</a>
+                                     </div>
+                                  </div> 
                         </div>
                     </div>
                 </div>
