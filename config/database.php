@@ -45,7 +45,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL', 'mysql+ssh://forge@159.65.218.66/forge@127.0.0.1/prestodc7?name=prestodc7&usePrivateKey=true'),
+            'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '159.65.218.66'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'prestodc7'),
