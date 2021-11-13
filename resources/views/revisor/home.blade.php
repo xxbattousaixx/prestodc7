@@ -50,7 +50,7 @@
                                     @foreach($article->images as $image)
 
                                     <div class="carousel-item @if($loop->first) active @endif">
-                                        <img class="d-block w-100" src="{{$image->getUrl(300, 150)}}">
+                                        <img class="d-block w-100" src="{{$image->getUrl()}}">
                                         <div class="col-12">
                                             adult: {{$image->adult}}<br />
                                             spoof: {{$image->spoof}}<br />

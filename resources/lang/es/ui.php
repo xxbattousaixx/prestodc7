@@ -33,6 +33,9 @@ return [
     'cat' => 'Categoria: ',
     'logout' => 'Cerrar Sesión',
     'price' => 'Precio',
+    'askrev' => 'conviertete en revisor!',
+    'hello' => 'Hola, ',
+
 
 
 

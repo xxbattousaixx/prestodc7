@@ -31,6 +31,8 @@ return [
     'cat' => 'Categoria: ',
     'logout' => 'Logout',
     'price' => 'Prezzo',
+    'askrev' => 'richiedi di diventare revisore!',
+    'hello' => 'Ciao, ',
 
 
 

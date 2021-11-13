@@ -35,6 +35,10 @@ return [
     'cat' => 'Category: ',
     'logout' => 'Logout',
     'price' => 'Price',
+    'askrev' => 'become a revisor!',
+    'hello' => 'Hello, ',
+
+
 
 
 

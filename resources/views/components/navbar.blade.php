@@ -67,7 +67,7 @@
           <ul class="nav justify-content-end">
             <li class="nav-item">
               <a href="{{route('contactUs')}}" class="nav-link">
-                <span class="text-danger mx-3"><strong>Ciao, {{Auth::user()->name}} richiedi di diventare revisore!</strong></span>
+                <span class="text-danger mx-3"><strong>{{__('ui.hello')}} {{Auth::user()->name}} -- {{__('ui.askrev')}}</strong></span>
               </a>
             </li>
           </ul>
