@@ -45,8 +45,8 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL', 'ls-a245be7bc814c5c09e517e5c568a61d758e9e69e.cukbrilmeszh.us-east-1.rds.amazonaws.com'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'url' => env('DATABASE_URL', 'prestodb'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'prestodb'),
             'username' => env('DB_USERNAME', 'battousai'),
